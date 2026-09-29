@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<title>ProAttend PRO</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <div class="brand-center"><div class="logo">PA</div><h1>ProAttend PRO</h1><p>Attendance • DTE • Payroll</p></div>
+    <label>Email</label><input id="loginEmail" type="email" autocomplete="email" placeholder="Admin email">
+    <label>Password</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Password">
+    <button id="loginBtn" class="btn primary wide">Admin / HR Login</button>
+    <button id="employeeClockBtn" class="btn wide" style="margin-top:8px">Employee Time In / Out</button>
+    <div id="loginMessage" class="message"></div>
+    <div id="clockPanel" class="hidden"></div>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+<header class="topbar">
+  <button id="menuBtn" class="icon-btn">☰</button>
+  <div class="brand"><div class="logo sm">PA</div><b>ProAttend PRO</b></div>
+  <div class="top-right"><span id="userEmail"></span><span id="roleBadge" class="badge info">ADMIN</span><button id="logoutBtn" class="btn danger small">Logout</button></div>
+</header>
+
+<div class="shell">
+<aside id="sidebar" class="sidebar">
+  <button class="nav active" data-page="dashboard">📊 <span>Dashboard</span></button>
+  <button class="nav" data-page="employees">👥 <span>Employees</span></button>
+  <button class="nav" data-page="attendance">🕒 <span>Attendance / DTE</span></button>
+  <button class="nav" data-page="leave">🏖️ <span>Leave</span></button>
+  <button class="nav" data-page="holidays">📅 <span>Holidays</span></button>
+  <button class="nav" data-page="overtime">⏱️ <span>Overtime</span></button>
+  <button class="nav" data-page="payroll">💰 <span>Payroll</span></button>
+  <button class="nav" data-page="payslip">🧾 <span>Payslip</span></button>
+  <button class="nav" data-page="reports">📈 <span>Reports</span></button>
+  <button class="nav" data-page="users">🔐 <span>Users / Roles</span></button>
+  <button class="nav" data-page="settings">⚙️ <span>Settings</span></button>
+</aside>
+<main id="content" class="content"></main>
+</div>
+</div>
+
+<div id="modal" class="modal hidden"><div class="modal-card"><button id="modalClose" class="modal-close">×</button><div id="modalBody"></div></div></div>
+<div id="toastArea"></div>
+
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore-compat.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
